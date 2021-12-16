@@ -1,0 +1,19 @@
+[package]
+name = "serde-cs"
+version = "0.1.0"
+edition = "2021"
+authors = ["Masato Nakata <masaton@naughie.com>"]
+description = "Serde serialization/deserialization for camma separated lists"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/naughie/serde-cs"
+documentation = "https://docs.rs/serde-cs"
+keywords = ["serde", "serialization"]
+categories = ["encoding"]
+readme = "README.md"
+include = ["src/", "LICENSE-*", "README.md"]
+
+[dependencies]
+serde = { version = "1" }
+
+[dev-dependencies]
+serde_json = "1"
