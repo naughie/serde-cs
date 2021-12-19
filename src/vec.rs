@@ -31,6 +31,11 @@ impl<T> CS<T> {
     pub fn to_inner(&self) -> &Vec<T> {
         &self.0
     }
+
+    #[inline]
+    pub fn to_inner_mut(&mut self) -> &mut Vec<T> {
+        &mut self.0
+    }
 }
 
 impl<T: FromStr> FromStr for CS<T> {

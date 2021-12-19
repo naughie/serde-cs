@@ -31,6 +31,11 @@ impl<T, const N: usize> CS<T, N> {
     pub fn to_inner(&self) -> &[T; N] {
         &self.0
     }
+
+    #[inline]
+    pub fn to_inner_mut(&mut self) -> &mut [T; N] {
+        &mut self.0
+    }
 }
 
 impl<T: FromStr + Default + Copy, const N: usize> FromStr for CS<T, N> {
