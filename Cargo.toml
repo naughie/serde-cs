@@ -1,6 +1,6 @@
 [package]
 name = "serde-cs"
-version = "0.2.1"
+version = "0.2.2"
 edition = "2021"
 authors = ["Masato Nakata <masaton@naughie.com>"]
 description = "Serde serialization/deserialization for camma separated lists"
