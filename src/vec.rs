@@ -4,7 +4,7 @@ use serde::ser;
 use std::fmt;
 use std::str::FromStr;
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct CS<T>(pub Vec<T>);
 
 impl<T> Default for CS<T> {
