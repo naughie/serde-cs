@@ -1,8 +1,8 @@
 use serde::de;
 use serde::ser;
 
-use std::fmt;
 use std::str::FromStr;
+use std::{fmt, vec};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct CS<T>(pub Vec<T>);
@@ -47,6 +47,15 @@ impl<T: FromStr> FromStr for CS<T> {
             .map(T::from_str)
             .collect::<Result<Vec<_>, _>>()
             .map(Self)
+    }
+}
+
+impl<T> IntoIterator for CS<T> {
+    type Item = T;
+    type IntoIter = vec::IntoIter<T>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.0.into_iter()
     }
 }
 
