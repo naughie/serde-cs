@@ -1,8 +1,8 @@
 use serde::de;
 use serde::ser;
 
-use std::fmt;
 use std::str::FromStr;
+use std::{array, fmt};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct CS<T, const N: usize>(pub [T; N]);
@@ -51,6 +51,15 @@ impl<T: FromStr + Default + Copy, const N: usize> FromStr for CS<T, N> {
             *entry = s.parse()?;
         }
         Ok(arr)
+    }
+}
+
+impl<T, const N: usize> IntoIterator for CS<T, N> {
+    type Item = T;
+    type IntoIter = array::IntoIter<T, N>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.0.into_iter()
     }
 }
 
