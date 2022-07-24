@@ -21,6 +21,13 @@ impl<T> AsRef<[T]> for CS<T> {
     }
 }
 
+impl<T> From<Vec<T>> for CS<T> {
+    #[inline]
+    fn from(v: Vec<T>) -> Self {
+        Self(v)
+    }
+}
+
 impl<T> CS<T> {
     #[inline]
     pub fn into_inner(self) -> Vec<T> {

@@ -21,6 +21,13 @@ impl<T, const N: usize> AsRef<[T]> for CS<T, N> {
     }
 }
 
+impl<T, const N: usize> From<[T; N]> for CS<T, N> {
+    #[inline]
+    fn from(v: [T; N]) -> Self {
+        Self(v)
+    }
+}
+
 impl<T, const N: usize> CS<T, N> {
     #[inline]
     pub fn into_inner(self) -> [T; N] {
